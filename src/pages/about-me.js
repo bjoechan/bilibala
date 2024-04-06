@@ -24,14 +24,11 @@ const AboutMePage = () => {
 
   return (
     <Layout>
-      <MenuBar />
-      <div tw="w-screen h-96 lg:(max-w-full h-auto)">
-        <Img
-          tw="object-cover h-96 rounded-xl lg:(h-auto)"
-          fluid={data.file.childImageSharp.fluid}
-          alt="Billy Drinking Coffee"
-        />
-      </div>
+      <Img
+        tw="object-cover object-right w-screen h-[32rem] lg:(h-auto rounded-xl)"
+        fluid={data.file.childImageSharp.fluid}
+        alt="Billy Drinking Coffee"
+      />
 
       <div tw="mx-auto p-4 lg:(px-0)">
         <Paragraph>

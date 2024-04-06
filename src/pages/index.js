@@ -1,17 +1,13 @@
-import * as React from "react"
-import 'twin.macro'
+import * as React from "react";
+import "twin.macro";
 
 import { MenuBar } from "../components/MenuBar";
 import { Layout } from "../components/Layout";
 
 const IndexPage = () => {
-  return (
-    <Layout>
-        <MenuBar />
-    </Layout>
-  )
-}
+  return <Layout></Layout>;
+};
 
-export default IndexPage
+export default IndexPage;
 
-export const Head = () => <title>Home Page</title>
+export const Head = () => <title>Home Page</title>;
