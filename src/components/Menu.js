@@ -1,40 +1,56 @@
 import * as React from "react";
-import tw from "twin.macro";
+import tw, { styled } from "twin.macro";
 import { Link } from "gatsby";
 import MenuIcon from "../images/assets/mobile-menu-icon.inline.svg";
+import CloseMenuIcon from "../images/assets/mobile-menu-close-icon.inline.svg";
 
-const MenuContainer = tw.div`
-  flex
-  justify-between
-  items-center
-  p-2
-`;
+const MenuContainer = styled.div(({ isMenuOpen }) => [
+  tw`flex bg-white items-center  md:(justify-between p-2) transition-transform duration-500 ease-in-out`,
+  isMenuOpen
+    ? tw`flex-col justify-center items-start w-screen h-screen bg-amber-200 absolute top-0 right-0 z-10 opacity-80 transform translate-x-0 md:(transform translate-x-full)`
+    : tw`transform -translate-x-full md:(transform translate-x-0)`,
+]);
 
 const MenuLink = tw(Link)`
-  text-blue-500
-  hover:text-blue-800
+  text-blue-900
+  hover:font-bold
   mr-4
+  pl-10
   last:mr-0
-  hidden
-  md:(w-20 block)
+  text-center
+  md:(w-32 text-blue-500 m-0 p-0 text-left
+    hover:text-blue-800)
 `;
-
-const HomeLink = () => <MenuLink to="/">Home</MenuLink>;
-const AboutMeLink = () => <MenuLink to="/about-me">About Me</MenuLink>;
-const ContactLink = () => <MenuLink to="/contact">Contact</MenuLink>;
+// CMenulink is a styled component that takes a prop called isMenuOpen. If isMenuOpen is true, it will display the link, otherwise it will hide it. This is useful for the mobile menu.
+const CMenuLink = styled(MenuLink)(({ isMenuOpen }) => [
+  tw`transition-all duration-500`,
+  isMenuOpen ? tw`block` : tw`hidden md:block`,
+]);
 
 export const Menu = ({ isMenuOpen, openMobileMenu }) => {
   return (
-    <MenuContainer
-      css={
-        isMenuOpen &&
-        tw`flex-col justify-center items-start w-screen h-screen bg-amber-200 absolute top-0 right-0 z-10 opacity-80`
-      }
-    >
-      <MenuIcon tw="w-8 h-8 md:(w-0)" onClick={openMobileMenu} />
-      <HomeLink />
-      <AboutMeLink />
-      <ContactLink />
+    <MenuContainer isMenuOpen={isMenuOpen}>
+      {!isMenuOpen && (
+        <MenuIcon
+          tw="fixed right-6 w-8 h-8 md:(hidden)"
+          onClick={openMobileMenu}
+        />
+      )}
+      {isMenuOpen && (
+        <CloseMenuIcon
+          tw="relative left-8 -top-8 w-8 h-8"
+          onClick={openMobileMenu}
+        />
+      )}
+      <CMenuLink to="/" isMenuOpen={isMenuOpen}>
+        Home
+      </CMenuLink>
+      <CMenuLink to="/about-me" isMenuOpen={isMenuOpen}>
+        About Me
+      </CMenuLink>
+      <CMenuLink to="/contact" isMenuOpen={isMenuOpen}>
+        Contact
+      </CMenuLink>
     </MenuContainer>
   );
 };
