@@ -4,12 +4,12 @@
 module.exports = {
   siteMetadata: {
     title: `bilibala`,
-    siteUrl: `https://www.bilibala.ca`
+    siteUrl: `https://www.bilibala.ca`,
   },
-  plugins: [ 
-    "gatsby-plugin-emotion", 
+  plugins: [
+    "gatsby-plugin-emotion",
     "gatsby-plugin-postcss",
-    `gatsby-plugin-sharp`, 
+    `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -19,10 +19,18 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /\.inline\.svg$/, // See below to configure properly
+        },
+      },
+    },
+    {
       resolve: "gatsby-plugin-google-gtag",
       options: {
         trackingIds: ["G-G361RWHN69"],
-      }
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -34,7 +42,7 @@ module.exports = {
         theme_color: `#663399`,
         display: `standalone`,
         icon: `src/images/bilibala-logo.png`, // This path is relative to the root of the site.
-      }, 
-    }
-  ]
+      },
+    },
+  ],
 };

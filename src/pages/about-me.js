@@ -1,7 +1,7 @@
 import * as React from "react";
 import tw from "twin.macro";
 import { Layout } from "../components/Layout";
-import { MenuBar } from "../components/MenuBar";
+import { Container } from "../components/Container";
 
 import { graphql, useStaticQuery } from "gatsby";
 
@@ -25,11 +25,10 @@ const AboutMePage = () => {
   return (
     <Layout>
       <Img
-        tw="object-cover object-right w-screen h-[32rem] lg:(h-auto rounded-xl)"
+        tw="object-cover object-right w-screen h-[32rem] lg:(rounded-xl w-full h-[40rem])"
         fluid={data.file.childImageSharp.fluid}
         alt="Billy Drinking Coffee"
       />
-
       <div tw="mx-auto p-4 lg:(px-0)">
         <Paragraph>
           Billy Chan, a seasoned Senior Web Developer, brings 20 years of IT
