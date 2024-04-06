@@ -7,7 +7,7 @@ const MenuContainer = tw.div`
   flex
   justify-between
   items-center
-  p-4
+  p-2
 `;
 
 const MenuLink = tw(Link)`
@@ -22,10 +22,10 @@ const AboutMeLink = () => <MenuLink to="/about-me">About Me</MenuLink>;
 const ContactLink = () => <MenuLink to="/contact">Contact</MenuLink>;
 
 export const Menu = () => (
-    <MenuContainer>
-      {/* <img src={MenuMobileBtnImg} /> */}
-        <HomeLink />
-        <AboutMeLink />
-        <ContactLink />
-    </MenuContainer>
+  <MenuContainer>
+    {/* <img src={MenuMobileBtnImg} /> */}
+    <HomeLink />
+    <AboutMeLink />
+    <ContactLink />
+  </MenuContainer>
 );
