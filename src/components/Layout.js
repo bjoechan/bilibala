@@ -24,7 +24,7 @@ export const Layout = ({ children }) => {
     <div>
       <MenuBar isMenuOpen={isMenuOpen} openMobileMenu={openMobileMenu} />
       <div css={tw`bg-white pt-28 md:(pt-40) lg:(pt-28)`}>
-        <div tw="bg-white  w-screen lg:(w-lg mx-auto)">{children}</div>
+        <div tw="bg-white lg:(w-lg mx-auto)">{children}</div>
       </div>
       <Footer />
     </div>

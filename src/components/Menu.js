@@ -24,10 +24,12 @@ const MenuLink = tw(Link)`
   md:(w-32 m-0 p-0 text-center text-green text-lg)
 `;
 // CMenulink is a styled component that takes a prop called isMenuOpen. If isMenuOpen is true, it will display the link, otherwise it will hide it. This is useful for the mobile menu.
-const CMenuLink = styled(MenuLink)(({ isMenuOpen }) => [
-  tw`transition-all duration-500`,
-  isMenuOpen ? tw`block` : tw`hidden md:block`,
-]);
+const CMenuLink = styled(({ isMenuOpen, ...props }) => <MenuLink {...props} />)(
+  ({ isMenuOpen }) => [
+    tw`transition-all duration-500`,
+    isMenuOpen ? tw`block` : tw`hidden md:block`,
+  ]
+);
 
 export const Menu = ({ isMenuOpen, openMobileMenu }) => {
   return (

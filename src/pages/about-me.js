@@ -24,8 +24,10 @@ const AboutMePage = () => {
   return (
     <Layout>
       <Img
-        tw="object-cover object-right w-screen h-[32rem] lg:(rounded-xl w-full h-[40rem])"
+        tw="object-cover object-right lg:(rounded-xl h-[40rem])"
         fluid={data.file.childImageSharp.fluid}
+        objectFit="cover"
+        objectPosition="center right"
         alt="Billy Drinking Coffee"
       />
       <div tw="mx-auto p-4 lg:(px-0)">
