@@ -1,7 +1,6 @@
 import * as React from "react";
 import tw from "twin.macro";
 import { Layout } from "../components/Layout";
-import { Container } from "../components/Container";
 
 import { graphql, useStaticQuery } from "gatsby";
 

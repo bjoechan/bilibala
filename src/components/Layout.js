@@ -23,10 +23,10 @@ export const Layout = ({ children }) => {
   return (
     <div>
       <MenuBar isMenuOpen={isMenuOpen} openMobileMenu={openMobileMenu} />
-      <div css={tw`bg-white pt-36`}>
-        <div tw="bg-white  w-screen lg:(w-[1024px] mx-auto)">{children}</div>
-        <Footer />
+      <div css={tw`bg-white pt-28 md:(pt-40) lg:(pt-28)`}>
+        <div tw="bg-white  w-screen lg:(w-lg mx-auto)">{children}</div>
       </div>
+      <Footer />
     </div>
   );
 };

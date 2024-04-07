@@ -41,7 +41,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `standalone`,
-        icon: `src/images/bilibala-logo.png`, // This path is relative to the root of the site.
+        icon: `src/images/BC-logo.png`, // This path is relative to the root of the site.
       },
     },
   ],
