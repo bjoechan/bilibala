@@ -42,18 +42,21 @@ const IndexPage = () => {
       description: "This is the description of the Call to Action.",
       buttonText: "Let's play",
       imageSrc: data.boardgame.childImageSharp.fluid,
+      link: "/boardgames",
     },
     {
       title: "Music",
       description: "This is the description of the Call to Action.",
       buttonText: "Let's feel",
       imageSrc: data.music.childImageSharp.fluid,
+      link: "/music",
     },
     {
       title: "Travel",
       description: "This is the description of the Call to Action.",
       buttonText: "Let's Go",
       imageSrc: data.travel.childImageSharp.fluid,
+      link: "/travel",
     },
   ];
   return (
