@@ -5,6 +5,7 @@ import { Layout } from "../components/Layout";
 import { graphql, useStaticQuery } from "gatsby";
 
 import Img from "gatsby-image";
+import { Container } from "../components/Container";
 
 const Paragraph = tw.div`my-4`;
 
@@ -24,13 +25,13 @@ const AboutMePage = () => {
   return (
     <Layout>
       <Img
-        tw="object-cover object-right lg:(rounded-xl h-[40rem])"
+        tw="object-cover object-right h-[32rem] lg:(h-[40rem])"
         fluid={data.file.childImageSharp.fluid}
         objectFit="cover"
         objectPosition="center right"
         alt="Billy Drinking Coffee"
       />
-      <div tw="mx-auto p-4 lg:(px-0)">
+      <Container>
         <Paragraph>
           Billy Chan, a seasoned Senior Web Developer, brings 20 years of IT
           experience and 15 years of Media & Marketing expertise to the table.
@@ -123,7 +124,7 @@ const AboutMePage = () => {
           multifaceted artist, an explorer, and a problem-solving maestro.
           🚀🎨🌎
         </Paragraph>
-      </div>
+      </Container>
     </Layout>
   );
 };

@@ -9,6 +9,8 @@ import { Layout } from "../components/Layout";
 
 import { useStaticQuery, graphql } from "gatsby";
 
+const { Hero } = require("../components/Hero");
+
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -61,10 +63,8 @@ const IndexPage = () => {
   ];
   return (
     <Layout>
-      <Container>
-        <h1 tw="text-2xl font-bold">Home Page</h1>
-        <p tw="text-lg mt-4">Welcome to the Home Page.</p>
-      </Container>
+      <Hero />
+
       <Container>
         <h2 tw="text-xl font-bold">About</h2>
         <p tw="text-lg mt-4">This is the about section.</p>
