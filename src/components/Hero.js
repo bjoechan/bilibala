@@ -24,7 +24,7 @@ export const Hero = () => {
           backgroundImage: `url(${data.heroSunRise.childImageSharp.fluid.src})`,
         }}
       >
-        <div tw="relative z-10 h-96 w-full text-white">
+        <div tw="relative h-96 w-full text-white">
           <div tw="relative top-2/3 pl-[10%] text-lg md:(text-2xl) lg:(pl-[18%]) italic font-bold">
             Learn Forever, Play Hard, <br tw="md:hidden" />
             Work Harder!

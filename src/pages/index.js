@@ -66,8 +66,35 @@ const IndexPage = () => {
       <Hero />
 
       <Container>
-        <h2 tw="text-xl font-bold">About</h2>
-        <p tw="text-lg mt-4">This is the about section.</p>
+        <h1 tw="text-2xl font-bold mt-4">
+          Hello, I am <span tw="text-green">Billy Chan</span>
+        </h1>
+
+        <p tw="text-lg mt-4">
+          In a world where silence often reigns supreme among developers, I
+          embrace communication. I believe that great software emerges from
+          collaboration, curiosity, and shared ideas. So, let’s chat about your
+          project over a cup of virtual coffee.
+        </p>
+
+        <p tw="text-lg mt-4">
+          When I’m not debugging, you’ll find me rolling dice, strategizing in
+          board games, and exploring alternate realities. Whether it’s a game
+          board or a responsive website, I love crafting seamless experiences.
+        </p>
+
+        <p tw="text-lg mt-4">
+          And yes, I’m not just a code whisperer—I’m also a radio host. Tune in
+          to my show where I discuss tech trends, share development tips, and
+          occasionally slip in a board game recommendation.
+        </p>
+
+        <h1 tw="text-2xl font-bold mt-4">Let’s Connect!</h1>
+
+        <p tw="text-lg mt-4">
+          Whether you’re a fellow developer, a board game enthusiast, or just
+          curious, drop me a line. Let’s build something amazing together!
+        </p>
       </Container>
       <Container>
         <div tw="grid grid-cols-1 w-full md:(grid-cols-3 gap-4 p-0)">

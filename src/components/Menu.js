@@ -42,7 +42,7 @@ export const Menu = ({ isMenuOpen, openMobileMenu }) => {
       )}
       {isMenuOpen && (
         <CloseMenuIcon
-          tw="fixed top-12 right-8  w-12 h-12 text-white z-20"
+          tw="fixed top-12 right-8  w-12 h-12 text-white z-40"
           onClick={openMobileMenu}
         />
       )}
