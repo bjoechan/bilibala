@@ -45,21 +45,24 @@ const IndexPage = () => {
   const callToActionOptions = [
     {
       title: "Board Games",
-      description: "This is the description of the Call to Action.",
+      description:
+        "like Settlers of Catan, invite players to think outside the box, strategize, and build bonds through shared challenges.",
       buttonText: "Let's play",
       imageSrc: data.boardgame.childImageSharp.fluid,
       link: "/boardgames",
     },
     {
       title: "Music",
-      description: "This is the description of the Call to Action.",
+      description:
+        "like a multifaceted elixir, weaves threads of calmness, invigoration, and creative sparks.",
       buttonText: "Let's feel",
       imageSrc: data.music.childImageSharp.fluid,
       link: "/music",
     },
     {
       title: "Travel",
-      description: "This is the description of the Call to Action.",
+      description:
+        "like an open book, invites you to explore distant lands, immerse yourself in diverse cultures, and learn the universal language of respect.",
       buttonText: "Let's Go",
       imageSrc: data.travel.childImageSharp.fluid,
       link: "/travel",

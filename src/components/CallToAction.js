@@ -11,8 +11,8 @@ export const CallToAction = ({ options }) => {
   const { title, description, buttonText, imageSrc, link } = options;
   return (
     <div tw="border-2 border-slate rounded-2xl mb-8 last:(mb-0) flex flex-row md:(m-0 flex-col) overflow-hidden">
-      <Img fluid={imageSrc} tw="object-cover w-1/2 md:(w-full)" />
-      <div tw="p-4 text-left md:(p-2 text-center) lg:(p-10)">
+      <Img fluid={imageSrc} tw="object-cover w-full" />
+      <div tw="p-4 text-left w-full md:(p-2 text-center) lg:(p-10)">
         <H1>{title}</H1>
         <P>{description}</P>
         <Button2
