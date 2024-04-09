@@ -33,10 +33,10 @@ const AboutMePage = () => {
       />
       <Container>
         <Paragraph>
-          Billy Chan, a seasoned Senior Web Developer, brings 20 years of IT
-          experience and 15 years of Media & Marketing expertise to the table.
-          Fluent in both English and French, Billy’s passion for technology and
-          creativity shines through in every project.
+          <span>Billy Chan</span>, a seasoned Senior Web Developer, brings 20
+          years of IT experience and 15 years of Media & Marketing expertise to
+          the table. Fluent in both English and French, Billy’s passion for
+          technology and creativity shines through in every project.
         </Paragraph>
         <Paragraph>
           🎵 Music Enthusiast:
