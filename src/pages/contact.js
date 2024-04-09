@@ -1,56 +1,48 @@
 import * as React from "react";
-import tw from "twin.macro";
 import { Layout } from "../components/Layout";
 import { Container } from "../components/Container";
+import { Form } from "../components/Form";
+import { Hero } from "../components/Hero";
+import { H1Green } from "../components/typography";
 
-const Input = tw.input`ml-2 border-2 border-gray-800 rounded-md`;
-const FieldDiv = tw.div`w-full`;
-const Label = tw.label`flex`;
-const LabelDiv = tw.div`w-20`;
+import { useStaticQuery, graphql } from "gatsby";
 
 const ContactPage = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      heroImage: file(relativePath: { eq: "bridge.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 1200) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+    }
+  `);
+
+  const heroOptions = {
+    title: "Connect Me</span>",
+    description:
+      "“We are all connected; to each other, biologically. To the Earth, chemically. To the rest of the universe, atomically.” – Neil deGrasse Tyson",
+    bgImage: data.heroImage.childImageSharp.fluid.src,
+  };
+
   return (
     <Layout>
+      <Hero options={heroOptions} />
       <Container>
-        <form method="post" action="#">
-          <FieldDiv>
-            <Label>
-              <LabelDiv>Name</LabelDiv>
-              <Input type="text" name="name" id="name" />
-            </Label>
-          </FieldDiv>
-          <FieldDiv>
-            <Label>
-              <LabelDiv>Email</LabelDiv>
-              <Input type="email" name="email" id="email" />
-            </Label>
-          </FieldDiv>
-          <FieldDiv>
-            <Label>
-              <LabelDiv>Subject</LabelDiv>
-              <Input type="text" name="subject" id="subject" />
-            </Label>
-          </FieldDiv>
-          <FieldDiv>
-            <Label>
-              <LabelDiv>Message</LabelDiv>
-              <textarea
-                name="message"
-                id="message"
-                rows="5"
-                tw="ml-2 border-2 border-gray-800 rounded-md"
-              />
-            </Label>
-          </FieldDiv>
-          <div>
-            <button
-              tw="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
-              type="submit"
-            >
-              Send
-            </button>
-          </div>
-        </form>
+        <H1Green>Connect with me!</H1Green>
+        Whether you have questions, feedback, or just want to say hello, I’d
+        love to hear from you. When you reach out, you’re not just sending a
+        message into the digital void; you’re connecting with a real person who
+        values your thoughts and inquiries. Your words matter, and I promise to
+        respond promptly. Let’s chat and explore the possibilities together!
+        Whether it’s a project, an idea, or simply a friendly conversation, I’m
+        here and eager to connect. So go ahead, hit that “Contact” button, and
+        let’s make some magic happen!
+      </Container>
+      <Container>
+        <Form />
       </Container>
     </Layout>
   );

@@ -2,14 +2,11 @@ import * as React from "react";
 import "twin.macro";
 
 import { CallToAction } from "../components/CallToAction";
-
 import { Container } from "../components/Container";
-
 import { Layout } from "../components/Layout";
-
 import { useStaticQuery, graphql } from "gatsby";
-
-const { Hero } = require("../components/Hero");
+import { Hero } from "../components/Hero";
+import { H1, H2, P } from "../components/typography";
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -32,6 +29,13 @@ const IndexPage = () => {
         childImageSharp {
           fluid(maxWidth: 800) {
             ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      heroSunRise: file(relativePath: { eq: "hero/hero-sunrise.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1200) {
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
@@ -61,40 +65,47 @@ const IndexPage = () => {
       link: "/travel",
     },
   ];
+
+  const heroOptions = {
+    title: `<span tw="text-green">Billy Chan</span>`,
+    description: "Web Developer, Radio Host, Board Game Enthusiast",
+    bgImage: data.heroSunRise.childImageSharp.fluid.src,
+  };
+
   return (
     <Layout>
-      <Hero />
+      <Hero options={heroOptions} />
 
       <Container>
-        <h1 tw="text-2xl font-bold mt-4">
+        <H1>
           Hello, I am <span tw="text-green">Billy Chan</span>
-        </h1>
+        </H1>
 
-        <p tw="text-lg mt-4">
+        <P>
           In a world where silence often reigns supreme among developers, I
           embrace communication. I believe that great software emerges from
           collaboration, curiosity, and shared ideas. So, let’s chat about your
           project over a cup of virtual coffee.
-        </p>
+        </P>
 
-        <p tw="text-lg mt-4">
+        <P>
           When I’m not debugging, you’ll find me rolling dice, strategizing in
           board games, and exploring alternate realities. Whether it’s a game
           board or a responsive website, I love crafting seamless experiences.
-        </p>
+        </P>
 
-        <p tw="text-lg mt-4">
+        <P>
           And yes, I’m not just a code whisperer—I’m also a radio host. Tune in
           to my show where I discuss tech trends, share development tips, and
           occasionally slip in a board game recommendation.
-        </p>
+        </P>
 
-        <h1 tw="text-2xl font-bold mt-4">Let’s Connect!</h1>
+        <H2>Let’s Connect!</H2>
 
-        <p tw="text-lg mt-4">
+        <P>
           Whether you’re a fellow developer, a board game enthusiast, or just
           curious, drop me a line. Let’s build something amazing together!
-        </p>
+        </P>
       </Container>
       <Container>
         <div tw="grid grid-cols-1 w-full md:(grid-cols-3 gap-4 p-0)">
