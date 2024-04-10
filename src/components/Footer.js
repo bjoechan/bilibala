@@ -5,7 +5,7 @@ import LinkedInIcon from "../images/assets/linkedin-icon.inline.svg";
 import TwitterIcon from "../images/assets/twitter-x-icon.inline.svg";
 
 export const Footer = () => (
-  <div tw="w-full mt-20 bg-slate">
+  <div tw="w-full bg-slate">
     <div tw="pt-8 pb-20 mx-auto text-white lg:(px-0 w-lg)">
       <div tw="flex justify-center">
         <a
@@ -23,7 +23,9 @@ export const Footer = () => (
           <TwitterIcon alt="Twitter" tw="fill-white w-8 h-8 mx-2" />
         </a>
       </div>
-      <p tw="text-center mt-4">© 2024 Billy Chan. All rights reserved.</p>
+      <p tw="text-center mt-4">
+        © {new Date().getFullYear()} Billy Chan. All rights reserved.
+      </p>
     </div>
   </div>
 );
