@@ -31,7 +31,7 @@ const ContactPage = () => {
     <Layout>
       <Hero options={heroOptions} />
       <Container>
-        <H1Green>Connect with me!</H1Green>
+        <H1Green>Drop me a line!</H1Green>
         Whether you have questions, feedback, or just want to say hello, I’d
         love to hear from you. When you reach out, you’re not just sending a
         message into the digital void; you’re connecting with a real person who

@@ -1,5 +1,5 @@
 import * as React from "react";
-import "twin.macro";
+import tw from "twin.macro";
 import { Layout } from "../components/Layout";
 
 import { graphql, useStaticQuery } from "gatsby";
@@ -7,7 +7,9 @@ import { graphql, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
 import { Container } from "../components/Container";
 
-import { P } from "../components/Typography";
+import { P, H2 } from "../components/Typography";
+
+const Box = tw.div`p-2 border-2 border-dotted border-green text-center mr-2 mb-2 last:(mr-0) hover:(bg-amber-200)`;
 
 const AboutMePage = () => {
   const data = useStaticQuery(graphql`
@@ -22,108 +24,76 @@ const AboutMePage = () => {
     }
   `);
 
+  const myFavorite = [
+    "GATSBY",
+    "HTML",
+    "JAVA",
+    "JAVASCRIPT",
+    "JQUERY",
+    "NODEJS",
+    "NUXT",
+    "PHP",
+    "PLAYWRIGHT",
+    "REACT",
+    "SASS",
+    "TAILWIND",
+    "VUE",
+  ];
   return (
     <Layout>
-      <Container>
-        <Img
-          tw="object-right h-[32rem] lg:(object-none h-auto shadow-2xl)"
-          fluid={data.file.childImageSharp.fluid}
-          alt="Billy Drinking Coffee"
-        />
-      </Container>
-      <Container>
-        <P>
-          <span>Billy Chan</span>, a seasoned Senior Web Developer, brings 20
-          years of IT experience and 15 years of Media & Marketing expertise to
-          the table. Fluent in both English and French, Billy’s passion for
-          technology and creativity shines through in every project.
-        </P>
-        <P>
-          🎵 Music Enthusiast:
-          <br />
-          Jazz melodies resonate with Billy’s soul. When not coding, you’ll find
-          them immersed in the harmonious notes of their favorite tunes. The
-          piano, their canvas, becomes a masterpiece as their fingers dance
-          across the keys.
-        </P>
-        <P>
-          🌎 Globetrotter:
-          <br />
-          With a wanderlust heart, Billy explores the world, collecting memories
-          from every corner. From bustling cities to serene landscapes, each
-          destination adds to their rich tapestry of experiences. Whether it’s
-          savoring street food in Bangkok or gazing at the Northern Lights in
-          Iceland, Billy embraces the beauty of diverse cultures.
-        </P>
-        <P>
-          🍽 Culinary Adventurer
-          <br />
-          Food isn’t just sustenance; it’s an art form. Billy savors flavors,
-          appreciates textures, and seeks out hidden gems in local eateries.
-          Whether it’s a humble taco truck or a Michelin-starred restaurant,
-          they approach each meal as a delightful journey. Food photography?
-          Yes, please!
-        </P>
-        <P>
-          ♟ Board Game Aficionado
-          <br />
-          Strategy, camaraderie, and a dash of competition—Billy thrives on
-          board games. Settlers of Catan, Ticket to Ride, or a classic game of
-          chess—they’re up for it all. The thrill of outwitting opponents and
-          the joy of shared laughter make board game nights unforgettable.
-        </P>
+      <Img
+        tw="object-cover object-right h-[32rem] lg:(object-cover h-[46rem] shadow-2xl)"
+        fluid={data.file.childImageSharp.fluid}
+        alt="Billy Drinking Coffee"
+      />
+      <Container tw="flex flex-col-reverse md:(flex-row)">
+        <div tw="w-full md:w-3/4 pr-6">
+          <P>
+            They say the best programmers are those who never stop playing. In
+            my case, that translates to a love for strategic board games like
+            Settlers of Catan, where cunning plans and a dash of friendly
+            competition keep the mind sharp. But when I'm not building empires
+            on a tabletop, I'm building something real: lines of code that come
+            to life as functional, user-friendly applications.
+          </P>
 
-        <P>
-          🎙 Former Radio Host
-          <br />
-          For a decade, Billy’s voice graced the airwaves in Montreal. Their
-          charisma and storytelling skills captivated listeners, making each
-          show memorable. Whether interviewing artists, discussing current
-          events, or spinning tunes, Billy’s radio presence left an indelible
-          mark.
-        </P>
+          <P>
+            With over 15 years of experience under my belt, I've honed my skills
+            in web development, process automation, and even dabbled in the
+            fascinating world of AI. The thrill of problem-solving and the
+            immense satisfaction of crafting something truly unique from scratch
+            keeps me constantly engaged. It's like a symphony for the brain,
+            where logic and creativity intertwine to create something beautiful
+            and functional.
+          </P>
 
-        <P>
-          🔍 Problem Solver Extraordinaire
-          <br />
-          Complex challenges? No problem. Billy’s exceptional problem-solving
-          abilities turn obstacles into opportunities. Whether debugging code,
-          optimizing performance, or untangling intricate project requirements,
-          they thrive under pressure.
-        </P>
+          <P>
+            That same love of exploration extends beyond the digital realm.
+            Travel, for me, is like an open book filled with vibrant stories
+            waiting to be discovered. Immersing myself in diverse cultures, from
+            bustling cityscapes to serene countrysides, broadens my perspective
+            and fosters a deep sense of respect for the world's rich tapestry.
+            (Plus, being a Montreal native means I can navigate those
+            international adventures with a touch of French flair!)
+          </P>
 
-        <P>
-          🛠 Tech Stack Maestro
-          <br />
-          Billy wields an impressive toolkit:
-          <br />
-          <br />
-          PHP, HTML5, CSS3: The backbone of web development.
-          <br />
-          ReactJS, Gatsby, Tailwind, VueJS, NuxtJS: Crafting dynamic interfaces
-          and seamless user experiences.
-          <br />
-          Playwright: Automating testing with finesse.
-          <br />
-          WordPress: Navigating CMS platforms effortlessly.
-          <br />
-          Design Adept: Sketch, Figma, Avocode, Photoshop, Premiere—the Adobe
-          Suite is their playground.
-        </P>
-        <P>
-          🚀 Leadership and Creativity
-          <br />
-          With a high Creativity Quotient and well-developed management skills,
-          Billy thrives in collaborative environments. Whether leading a team or
-          contributing as an individual, they infuse projects with innovation
-          and efficiency.
-        </P>
-
-        <P>
-          In summary, Billy Chan is more than a developer; they’re a
-          multifaceted artist, an explorer, and a problem-solving maestro.
-          🚀🎨🌎
-        </P>
+          <P>
+            So, whether I'm conquering virtual challenges or exploring
+            real-world wonders, I'm always on the lookout for new experiences
+            and ways to push my boundaries. Feel free to stick around and
+            explore this website – it's my own little corner of the digital
+            world, where I share my passions and, hopefully, spark some
+            curiosity of your own.
+          </P>
+        </div>
+        <div tw="w-full md:w-1/4">
+          <H2 tw="mb-0 text-center text-green">- MY FAVORITE -</H2>
+          <div tw="flex flex-row flex-wrap items-center justify-center py-2">
+            {myFavorite.map((item, index) => (
+              <Box key={index}>{item}</Box>
+            ))}
+          </div>
+        </div>
       </Container>
     </Layout>
   );
