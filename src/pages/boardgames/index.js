@@ -2,16 +2,21 @@ import * as React from "react";
 import "twin.macro";
 import { Layout } from "../../components/Layout";
 import { Container } from "../../components/Container";
-import { H1, H2, P } from "../../components/Typography";
+import { P } from "../../components/Typography";
 import { useStaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
-import PlayIcon from "../../images/assets/play-icon.inline.svg";
+import { Hero } from "../../components/Hero";
 
-import VideoContext from "../../context/VideoContext";
-
+import BoardgameItem from "../../components/BoardgameItem";
 const BoardGamesPage = () => {
   const data = useStaticQuery(graphql`
     query {
+      heroBoardgame: file(relativePath: { eq: "hero/hero-boardgame.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 2400) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
       bgMagicMaze1: file(relativePath: { eq: "boardgames/magicmaze-1.webp" }) {
         childImageSharp {
           fluid(maxWidth: 800) {
@@ -26,28 +31,28 @@ const BoardGamesPage = () => {
           }
         }
       }
+      bgClank1: file(relativePath: { eq: "boardgames/clank1.webp" }) {
+        childImageSharp {
+          fluid(maxWidth: 800) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      bgClank2: file(relativePath: { eq: "boardgames/clank2.webp" }) {
+        childImageSharp {
+          fluid(maxWidth: 800) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   `);
 
-  return (
-    <Layout>
-      <Container>
-        <H1>Board Games:</H1>
-      </Container>
-      <Container tw="flex border-b-2 border-green">
-        <div tw="w-2/5">
-          <Img
-            fluid={data.bgMagicMaze1.childImageSharp.fluid}
-            tw="object-cover w-full"
-          />
-
-          <Img
-            fluid={data.bgMagicMaze2.childImageSharp.fluid}
-            tw="object-cover w-full"
-          />
-        </div>
-        <div tw="w-3/5 p-8">
-          <H2>MAGIC MAZE</H2>
+  const boardGamesData = [
+    {
+      title: "Magic Maze",
+      descriptions: () => (
+        <>
           <P>
             Magic Maze is a real-time, cooperative game. Each player can control
             any hero in order to make that hero perform a very specific action,
@@ -68,21 +73,81 @@ const BoardGamesPage = () => {
             lose the game: Your loitering has aroused suspicion, and the mall
             security guards nab you!
           </P>
+        </>
+      ),
+      images: [
+        data.bgMagicMaze1.childImageSharp.fluid,
+        data.bgMagicMaze2.childImageSharp.fluid,
+      ],
+      videoId: "N7tRhIJCzoQ",
+      imagePosition: "right",
+    },
+    {
+      title: "Clank!",
+      descriptions: () => (
+        <>
           <P>
-            <VideoContext.Consumer>
-              {(videoState) => (
-                <button
-                  tw="flex items-center"
-                  onClick={() => videoState.togglePlay("N7tRhIJCzoQ")}
-                >
-                  <PlayIcon tw="w-4 h-4 mr-2" />{" "}
-                  <div>Learn how to play Magic Maze</div>
-                </button>
-              )}
-            </VideoContext.Consumer>
+            Clank! is a deck-building game. Each player has their own deck, and
+            building yours up is part of playing the game. You start each of
+            your turns with five cards in your hand, and you'll play them all in
+            any order you choose. Most cards will generate resources, of which
+            there are three different kinds:
+            <ul>
+              <li>Skill, which is used to acquire new cards for your deck.</li>
+              <li>
+                Swords, which are used to fight the monsters that infest the
+                dungeon.
+              </li>
+              <li>Boots, which are used to move around the board.</li>
+            </ul>
           </P>
-        </div>
-      </Container>
+          <P>
+            Every time you acquire a new card, you put it face up in your
+            discard pile. Whenever you need to draw a card and find your deck
+            empty, you shuffle your discard pile and turn it face down to form a
+            new deck. With each shuffle, your newest cards become part of a
+            bigger and better deck! Each player starts with the same cards in
+            their deck, but they’ll acquire different cards during their turns.
+            Because cards can do many different things, each player’s deck (and
+            strategy) will become more and more different as the game unfolds.
+          </P>
+          <P>
+            During the game, you have two goals:
+            <ul>
+              <li>
+                Retrieve an Artifact token and escape the dragon by returning to
+                the place you started, outside of the dungeon.
+              </li>
+              <li>
+                Accumulate enough points with your Artifact and other loot to
+                beat out your opponents and earn the title of Greatest Thief in
+                the Realm!
+              </li>
+            </ul>
+          </P>
+        </>
+      ),
+      images: [
+        data.bgClank1.childImageSharp.fluid,
+        data.bgClank2.childImageSharp.fluid,
+      ],
+      videoId: "EZQyr5JkbBY",
+    },
+  ];
+
+  const heroOptions = {
+    title: `<span>Boardgames</span>`,
+    description: "Here is a list of board games that I enjoy playing.",
+    bgImage: data.heroBoardgame.childImageSharp.fluid.src,
+  };
+
+  return (
+    <Layout>
+      <Hero options={heroOptions} />
+
+      {boardGamesData.map((packages, index) => (
+        <BoardgameItem key={index} packages={packages} />
+      ))}
       <Container tw="h-24"></Container>
     </Layout>
   );
