@@ -7,7 +7,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
 import { Container } from "../components/Container";
 
-import { P } from "../components/typography";
+import { P } from "../components/Typography";
 
 const AboutMePage = () => {
   const data = useStaticQuery(graphql`

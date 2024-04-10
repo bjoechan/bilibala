@@ -1,12 +1,11 @@
 import * as React from "react";
 import "twin.macro";
-
 import { CallToAction } from "../components/CallToAction";
-import { Container } from "../components/Container";
+import { Container, FullContainer } from "../components/Container";
 import { Layout } from "../components/Layout";
 import { useStaticQuery, graphql } from "gatsby";
 import { Hero } from "../components/Hero";
-import { H1, H2, P } from "../components/typography";
+import { H1, H2, P } from "../components/Typography";
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -110,6 +109,7 @@ const IndexPage = () => {
           curious, drop me a line. Let’s build something amazing together!
         </P>
       </Container>
+
       <Container>
         <div tw="grid grid-cols-1 w-full md:(grid-cols-3 gap-4 p-0)">
           {callToActionOptions.map((options, index) => (
@@ -117,6 +117,15 @@ const IndexPage = () => {
           ))}
         </div>
       </Container>
+
+      <FullContainer tw="bg-green">
+        <Container tw="flex justify-center items-center py-20">
+          <div tw="text-white text-center">
+            “The only way to do great work is to love what you do.” <br />–
+            Steve Jobs
+          </div>
+        </Container>
+      </FullContainer>
     </Layout>
   );
 };

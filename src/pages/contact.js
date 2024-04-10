@@ -3,7 +3,7 @@ import { Layout } from "../components/Layout";
 import { Container } from "../components/Container";
 import { Form } from "../components/Form";
 import { Hero } from "../components/Hero";
-import { H1Green } from "../components/typography";
+import { H1Green } from "../components/Typography";
 
 import { useStaticQuery, graphql } from "gatsby";
 

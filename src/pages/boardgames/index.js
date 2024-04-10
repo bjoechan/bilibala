@@ -2,7 +2,7 @@ import * as React from "react";
 import "twin.macro";
 import { Layout } from "../../components/Layout";
 import { Container } from "../../components/Container";
-import { H1, H2, P } from "../../components/typography";
+import { H1, H2, P } from "../../components/Typography";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import PlayIcon from "../../images/assets/play-icon.inline.svg";

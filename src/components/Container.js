@@ -3,7 +3,7 @@ import tw from "twin.macro";
 import styled from "styled-components";
 
 export const Container = styled.div(({ tw: additionalTw }) => [
-  tw`w-full px-2 py-4 lg:(w-lg m-auto)`,
+  tw`w-full px-4 py-12 lg:(w-lg m-auto)`,
   additionalTw,
 ]);
 
