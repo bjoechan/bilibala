@@ -7,6 +7,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import { Hero } from "../../components/Hero";
 
 import BoardgameItem from "../../components/BoardgameItem";
+
 const BoardGamesPage = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -87,20 +88,26 @@ const BoardGamesPage = () => {
       descriptions: () => (
         <>
           <P>
-            Clank! is a deck-building game. Each player has their own deck, and
-            building yours up is part of playing the game. You start each of
-            your turns with five cards in your hand, and you'll play them all in
-            any order you choose. Most cards will generate resources, of which
-            there are three different kinds:
-            <ul>
-              <li>Skill, which is used to acquire new cards for your deck.</li>
-              <li>
-                Swords, which are used to fight the monsters that infest the
-                dungeon.
-              </li>
-              <li>Boots, which are used to move around the board.</li>
-            </ul>
+            <strong>Clank!</strong> is a deck-building game. Each player has
+            their own deck, and building yours up is part of playing the game.
+            You start each of your turns with five cards in your hand, and
+            you'll play them all in any order you choose. Most cards will
+            generate resources, of which there are three different kinds:
           </P>
+          <ul tw="list-disc list-outside pl-5 pb-4">
+            <li>
+              <strong>Skill</strong>, which is used to acquire new cards for
+              your deck.
+            </li>
+            <li>
+              <strong>Swords</strong>, which are used to fight the monsters that
+              infest the dungeon.
+            </li>
+            <li>
+              <strong>Boots</strong>, which are used to move around the board.
+            </li>
+          </ul>
+
           <P>
             Every time you acquire a new card, you put it face up in your
             discard pile. Whenever you need to draw a card and find your deck
@@ -111,20 +118,18 @@ const BoardGamesPage = () => {
             Because cards can do many different things, each player’s deck (and
             strategy) will become more and more different as the game unfolds.
           </P>
-          <P>
-            During the game, you have two goals:
-            <ul>
-              <li>
-                Retrieve an Artifact token and escape the dragon by returning to
-                the place you started, outside of the dungeon.
-              </li>
-              <li>
-                Accumulate enough points with your Artifact and other loot to
-                beat out your opponents and earn the title of Greatest Thief in
-                the Realm!
-              </li>
-            </ul>
-          </P>
+          <P>During the game, you have two goals:</P>
+          <ul tw="list-disc list-outside pl-5 pb-4">
+            <li>
+              Retrieve an Artifact token and escape the dragon by returning to
+              the place you started, outside of the dungeon.
+            </li>
+            <li>
+              Accumulate enough points with your Artifact and other loot to beat
+              out your opponents and earn the title of Greatest Thief in the
+              Realm!
+            </li>
+          </ul>
         </>
       ),
       images: [
