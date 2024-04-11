@@ -3,7 +3,6 @@ import tw from "twin.macro";
 import { Layout } from "../components/Layout";
 
 import { graphql, useStaticQuery } from "gatsby";
-
 import Img from "gatsby-image";
 import { Container } from "../components/Container";
 
@@ -11,7 +10,7 @@ import { P, H2 } from "../components/Typography";
 
 const Box = tw.div`p-2 border-2 border-dotted border-green text-center mr-2 mb-2 last:(mr-0) hover:(bg-amber-200)`;
 
-const AboutMePage = () => {
+const AboutMePage = ({ location }) => {
   const data = useStaticQuery(graphql`
     query letsQuery {
       file(relativePath: { eq: "billy-coffee.jpg" }) {
@@ -40,7 +39,7 @@ const AboutMePage = () => {
     "VUE",
   ];
   return (
-    <Layout>
+    <Layout location={location}>
       <Img
         tw="object-cover object-right h-[32rem] lg:(object-cover h-[46rem] shadow-2xl)"
         fluid={data.file.childImageSharp.fluid}

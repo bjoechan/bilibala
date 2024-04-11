@@ -4,9 +4,11 @@ import { MenuBar } from "./MenuBar";
 import { Footer } from "./Footer";
 
 import { useState, useEffect } from "react";
+import Seo from "./SEO";
 
-export const Layout = ({ children }) => {
+export const Layout = ({ children, location }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const url = location ? location.href : "";
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -22,6 +24,12 @@ export const Layout = ({ children }) => {
 
   return (
     <div>
+      <Seo
+        title="Billy Chan | Web Developer, Radio Host, Board Game Enthusiast"
+        description="Welcome to our website! We offer a wide range of web development services, including process automation, AI solutions, and more. Explore our site to learn more about our services and expertise."
+        keywords="Web Developer, Radio Host, Board Game Enthusiast"
+        url={url}
+      />
       <MenuBar isMenuOpen={isMenuOpen} openMobileMenu={openMobileMenu} />
       <div css={tw`bg-white pt-28 md:(pt-40) lg:(pt-28)`}>
         <div tw="bg-white">{children}</div>

@@ -6,7 +6,7 @@ import { Layout } from "../../components/Layout";
 import { Container } from "../../components/Container";
 import { H1, P, Author } from "../../components/Typography";
 
-const MusicPage = () => {
+const MusicPage = ({ location }) => {
   const data = useStaticQuery(graphql`
     query {
       heroMusic: file(relativePath: { eq: "hero/hero-music.png" }) {
@@ -27,7 +27,7 @@ const MusicPage = () => {
   };
 
   return (
-    <Layout>
+    <Layout location={location}>
       <Hero options={heroOptions} />
       <Container>
         <H1>Jazz: Improvisation, Irregularity, and the Harmony of Surprise</H1>
@@ -38,7 +38,7 @@ const MusicPage = () => {
           src="https://open.spotify.com/embed/playlist/37i9dQZF1DWTsUzn4pp2rW?utm_source=generator"
           width="100%"
           height="80"
-          allowfullscreen=""
+          allowFullScreen=""
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"
         ></iframe>

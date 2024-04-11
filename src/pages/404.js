@@ -1,49 +1,48 @@
-import * as React from "react"
-import { Link } from "gatsby"
+import * as React from "react";
+import "twin.macro";
+import { Link } from "gatsby";
 
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
+import { Layout } from "../components/Layout";
+import { Hero } from "../components/Hero";
+import { useStaticQuery, graphql } from "gatsby";
+import { Container } from "../components/Container";
+import { P, H1 } from "../components/Typography";
 
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
+const NotFoundPage = ({ location }) => {
+  const data = useStaticQuery(graphql`
+    query {
+      image404: file(relativePath: { eq: "404.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1200) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+    }
+  `);
 
-const NotFoundPage = () => {
+  const heroOptions = {
+    slogan: "404 Page not found",
+    bgImage: data.image404.childImageSharp.fluid.src,
+  };
+
   return (
-    <main style={pageStyles}>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry 😔, we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
-    </main>
-  )
-}
+    <Layout location={location}>
+      <Hero options={heroOptions} />
+      <Container>
+        <H1>Page not found</H1>
+        <P>
+          The page you are looking for might have been removed, had its name
+          changed, or is temporarily unavailable.
+        </P>
+        <Link to="/" tw="text-green font-bold">
+          Go back to the homepage
+        </Link>
+      </Container>
+    </Layout>
+  );
+};
 
-export default NotFoundPage
+export default NotFoundPage;
 
-export const Head = () => <title>Not found</title>
+export const Head = () => <title>Not found</title>;

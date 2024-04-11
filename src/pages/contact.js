@@ -7,7 +7,7 @@ import { H1Green } from "../components/Typography";
 
 import { useStaticQuery, graphql } from "gatsby";
 
-const ContactPage = () => {
+const ContactPage = ({ location }) => {
   const data = useStaticQuery(graphql`
     query {
       heroImage: file(relativePath: { eq: "bridge.jpg" }) {
@@ -28,7 +28,7 @@ const ContactPage = () => {
   };
 
   return (
-    <Layout>
+    <Layout location={location}>
       <Hero options={heroOptions} />
       <Container>
         <H1Green>Drop me a line!</H1Green>

@@ -3,6 +3,7 @@ import tw from "twin.macro";
 
 import { Menu } from "../components/Menu";
 import { LogoImg } from "../components/Images";
+import { Link } from "gatsby-link";
 
 export const MenuBar = ({ isMenuOpen, openMobileMenu }) => {
   return (
@@ -11,7 +12,9 @@ export const MenuBar = ({ isMenuOpen, openMobileMenu }) => {
       css={isMenuOpen ? tw`opacity-90` : tw`opacity-80`}
     >
       <div tw="px-4 py-4 lg:(px-0 w-lg flex justify-between)">
-        <LogoImg />
+        <Link to="/">
+          <LogoImg />
+        </Link>
         <Menu isMenuOpen={isMenuOpen} openMobileMenu={openMobileMenu} />
       </div>
     </div>

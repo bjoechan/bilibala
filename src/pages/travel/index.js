@@ -8,7 +8,7 @@ import { P } from "../../components/Typography";
 
 import { Accordian } from "../../components/Accordian";
 
-const MusicPage = () => {
+const MusicPage = ({ location }) => {
   const data = useStaticQuery(graphql`
     query {
       heroTravel: file(relativePath: { eq: "hero/hero-travel.png" }) {
@@ -120,7 +120,7 @@ const MusicPage = () => {
   };
 
   return (
-    <Layout>
+    <Layout location={location}>
       <Hero options={heroOptions} />
       <Container>
         <P>

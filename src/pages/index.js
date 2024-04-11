@@ -7,7 +7,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import { Hero } from "../components/Hero";
 import { H1, H2, P } from "../components/Typography";
 
-const IndexPage = () => {
+const IndexPage = ({ location }) => {
   const data = useStaticQuery(graphql`
     query {
       boardgame: file(relativePath: { eq: "boardgame.png" }) {
@@ -75,61 +75,61 @@ const IndexPage = () => {
   };
 
   return (
-    <Layout>
-      <Hero options={heroOptions} />
+    <>
+      <Layout location={location}>
+        <Hero options={heroOptions} />
 
-      <Container tw="pt-12">
-        <H1>
-          Hello, I am <span tw="text-green">Billy Chan</span>
-        </H1>
+        <Container tw="pt-12">
+          <H1>
+            Hello, I am <span tw="text-green">Billy Chan</span>
+          </H1>
 
-        <P>
-          In a world where silence often reigns supreme among developers, I
-          embrace communication. I believe that great software emerges from
-          collaboration, curiosity, and shared ideas. So, let’s chat about your
-          project over a cup of virtual coffee.
-        </P>
+          <P>
+            In a world where silence often reigns supreme among developers, I
+            embrace communication. I believe that great software emerges from
+            collaboration, curiosity, and shared ideas. So, let’s chat about
+            your project over a cup of virtual coffee.
+          </P>
 
-        <P>
-          When I’m not debugging, you’ll find me rolling dice, strategizing in
-          board games, and exploring alternate realities. Whether it’s a game
-          board or a responsive website, I love crafting seamless experiences.
-        </P>
+          <P>
+            When I’m not debugging, you’ll find me rolling dice, strategizing in
+            board games, and exploring alternate realities. Whether it’s a game
+            board or a responsive website, I love crafting seamless experiences.
+          </P>
 
-        <P>
-          And yes, I’m not just a code whisperer—I’m also a radio host. Tune in
-          to my show where I discuss tech trends, share development tips, and
-          occasionally slip in a board game recommendation.
-        </P>
+          <P>
+            And yes, I’m not just a code whisperer—I’m also a radio host. Tune
+            in to my show where I discuss tech trends, share development tips,
+            and occasionally slip in a board game recommendation.
+          </P>
 
-        <H2>Let’s Connect!</H2>
+          <H2>Let’s Connect!</H2>
 
-        <P>
-          Whether you’re a fellow developer, a board game enthusiast, or just
-          curious, drop me a line. Let’s build something amazing together!
-        </P>
-      </Container>
+          <P>
+            Whether you’re a fellow developer, a board game enthusiast, or just
+            curious, drop me a line. Let’s build something amazing together!
+          </P>
+        </Container>
 
-      <Container>
-        <div tw="grid grid-cols-1 w-full md:(grid-cols-3 gap-4 p-0)">
-          {callToActionOptions.map((options, index) => (
-            <CallToAction key={index} options={options} />
-          ))}
-        </div>
-      </Container>
-
-      <FullContainer tw="bg-green">
-        <Container tw="flex justify-center items-center py-20">
-          <div tw="text-white text-center">
-            “The only way to do great work is to love what you do.” <br />–
-            Steve Jobs
+        <Container>
+          <div tw="grid grid-cols-1 w-full md:(grid-cols-3 gap-4 p-0)">
+            {callToActionOptions.map((options, index) => (
+              <CallToAction key={index} options={options} />
+            ))}
           </div>
         </Container>
-      </FullContainer>
-    </Layout>
+
+        <FullContainer tw="bg-green">
+          <Container tw="flex justify-center items-center py-20">
+            <div tw="text-white text-center">
+              “The only way to do great work is to love what you do.” <br />–
+              Steve Jobs
+            </div>
+          </Container>
+        </FullContainer>
+      </Layout>
+    </>
   );
 };
 
 export default IndexPage;
-
-export const Head = () => <title>Home Page</title>;

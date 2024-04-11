@@ -70,12 +70,22 @@ export const Menu = ({ isMenuOpen, openMobileMenu }) => {
       >
         {isMenuOpen && (
           <div tw="pl-9 pb-4">
-            <LogoImg />
+            <Link to="/">
+              <LogoImg />
+            </Link>
           </div>
         )}
         {menuItems.map((item, index) => (
           <div tw="relative">
             <MenuLink
+              role="button" // Add a role attribute
+              tabIndex="0" // Make the div focusable
+              onKeyDown={(event) => {
+                // Add a keydown event handler
+                if (event.key === "Enter" || event.key === " ") {
+                  setShowSubBlock(index);
+                }
+              }}
               to={item.path}
               key={index}
               isMenuOpen={isMenuOpen}
@@ -85,6 +95,14 @@ export const Menu = ({ isMenuOpen, openMobileMenu }) => {
             </MenuLink>
             {item.subItems && (
               <div
+                role="menu" // Add a role attribute
+                tabIndex="0" // Make the div focusable
+                onKeyDown={(event) => {
+                  // Add a keydown event handler
+                  if (event.key === "Enter" || event.key === " ") {
+                    setShowSubBlock(null);
+                  }
+                }}
                 css={[
                   tw`flex flex-row pl-16 py-4 w-full md:(p-4 absolute z-10 bg-amber-100 )`,
                   showSubBlock === index ? tw`block` : tw`block md:hidden`,

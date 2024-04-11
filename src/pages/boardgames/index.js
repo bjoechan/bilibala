@@ -8,7 +8,7 @@ import { Hero } from "../../components/Hero";
 
 import BoardgameItem from "../../components/BoardgameItem";
 
-const BoardGamesPage = () => {
+const BoardGamesPage = ({ location }) => {
   const data = useStaticQuery(graphql`
     query {
       heroBoardgame: file(relativePath: { eq: "hero/hero-boardgame.jpg" }) {
@@ -147,7 +147,7 @@ const BoardGamesPage = () => {
   };
 
   return (
-    <Layout>
+    <Layout location={location}>
       <Hero options={heroOptions} />
 
       {boardGamesData.map((packages, index) => (
