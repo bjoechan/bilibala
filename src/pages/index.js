@@ -78,7 +78,7 @@ const IndexPage = () => {
     <Layout>
       <Hero options={heroOptions} />
 
-      <Container>
+      <Container tw="pt-12">
         <H1>
           Hello, I am <span tw="text-green">Billy Chan</span>
         </H1>
