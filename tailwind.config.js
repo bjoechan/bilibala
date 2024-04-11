@@ -9,6 +9,7 @@ module.exports = {
       colors: {
         green: "#0D9693",
         slate: "#475569",
+        lightslate: "#a1aebf",
       },
       width: {
         sm: "640px",
