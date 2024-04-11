@@ -34,18 +34,18 @@ export const Hero = ({ options = {} }) => {
       >
         <div tw="relative h-96 w-full text-white bg-black bg-opacity-20">
           {title && description && (
-            <div tw="flex flex-col justify-center w-4/5 h-full pl-8 lg:(pl-0 w-lg m-auto)">
-              <div tw="text-4xl text-left mb-4 md:(text-6xl) font-bold animate-slideIn transition-all ease-in">
+            <div tw="flex flex-col justify-center w-4/5 h-full pl-8 md:(animate-slideIn transition-all ease-in) lg:(pl-0 w-lg m-auto)">
+              <div tw="text-4xl text-left mb-4 md:(text-6xl) font-bold">
                 <span dangerouslySetInnerHTML={{ __html: title }} />
               </div>
-              <div tw="text-xl md:(text-2xl) animate-slideIn transition-all ease-in">
+              <div tw="text-xl md:(text-2xl)">
                 <span dangerouslySetInnerHTML={{ __html: description }} />
               </div>
             </div>
           )}
           {title && !description && (
-            <div tw="flex justify-center items-center w-4/5 h-full">
-              <div tw="text-4xl text-center md:(text-6xl) lg:(text-8xl) font-bold animate-slideIn transition-all ease-in">
+            <div tw="flex justify-center items-center w-4/5 h-full md:(animate-slideIn transition-all ease-in)">
+              <div tw="text-4xl text-center md:(text-6xl) lg:(text-8xl) font-bold">
                 <span dangerouslySetInnerHTML={{ __html: title }} />
               </div>
             </div>
