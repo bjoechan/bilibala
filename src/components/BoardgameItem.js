@@ -23,7 +23,13 @@ const BoardgameItem = ({ packages }) => {
       >
         <div tw="w-full md:(w-2/5)">
           {images.map((image, index) => (
-            <GatsbyImage image={image} alt="" key={index} />
+            <GatsbyImage
+              image={image}
+              alt=""
+              key={index}
+              loading="eager"
+              tw="w-screen"
+            />
           ))}
         </div>
         <div tw="w-full pt-8 md:(w-3/5 p-8)">

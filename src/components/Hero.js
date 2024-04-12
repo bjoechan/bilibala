@@ -12,8 +12,10 @@ export const Hero = ({ options = {} }) => {
       <GatsbyImage
         image={backgroundImage}
         alt={title}
-        tw="w-full h-96"
+        tw="w-screen h-96"
         objectPosition="100% 50%"
+        objectFit="cover"
+        loading="eager"
       />
 
       <div tw="absolute top-0 left-0 bg-black bg-opacity-20 z-10 h-96 w-full flex items-center">

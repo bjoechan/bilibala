@@ -79,7 +79,7 @@ export const pageQuery = graphql`
   }
 `;
 
-const MusicPage = ({ location, data }) => {
+const TravelPage = ({ location, data }) => {
   const heroOptions = {
     title: `Travel`,
     description:
@@ -151,4 +151,4 @@ const MusicPage = ({ location, data }) => {
   );
 };
 
-export default MusicPage;
+export default TravelPage;

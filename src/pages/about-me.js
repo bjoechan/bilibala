@@ -47,7 +47,7 @@ const AboutMePage = ({ location, data }) => {
       <GatsbyImage
         image={image}
         alt="Billy and Coffee"
-        tw="w-full h-96 md:h-[46rem]"
+        tw="w-screen h-96 md:h-[46rem]"
         objectPosition="100% 50%"
       />
 

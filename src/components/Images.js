@@ -26,7 +26,7 @@ export const LogoImg = () => {
 
   return (
     <div tw="flex justify-center">
-      <GatsbyImage image={image} alt="LOGO" tw="w-20" />
+      <GatsbyImage image={image} alt="LOGO" tw="w-20" loading="eager" />
     </div>
   );
 };

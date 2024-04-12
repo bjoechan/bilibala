@@ -10,9 +10,18 @@ const P = tw.p`text-sm  lg:(text-lg) mb-4`;
 
 export const CallToAction = ({ options }) => {
   const { title, description, buttonText, imageSrc, link } = options;
+
   return (
     <div tw="border-2 border-slate rounded-2xl mb-8 last:(mb-0) flex flex-row md:(m-0 flex-col) overflow-hidden">
-      <GatsbyImage image={imageSrc} alt={title} />
+      <GatsbyImage
+        image={imageSrc}
+        alt={title}
+        loading="eager"
+        tw="w-[400px] md:(w-[320px] h-[320px])"
+        objectFit="cover"
+        objectPosition="right center"
+      />
+
       <div tw="p-4 text-left w-full md:(p-2 text-center) lg:(p-10)">
         <H1>{title}</H1>
         <P>{description}</P>
