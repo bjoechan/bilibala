@@ -1,7 +1,6 @@
 import * as React from "react";
 import "twin.macro";
 import { Layout } from "../../components/Layout";
-import { Container } from "../../components/Container";
 import { P } from "../../components/Typography";
 import { useStaticQuery, graphql } from "gatsby";
 import { Hero } from "../../components/Hero";
@@ -153,7 +152,6 @@ const BoardGamesPage = ({ location }) => {
       {boardGamesData.map((packages, index) => (
         <BoardgameItem key={index} packages={packages} />
       ))}
-      <Container tw="h-24"></Container>
     </Layout>
   );
 };

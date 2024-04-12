@@ -27,7 +27,7 @@ export const LogoImg = () => {
 
   return (
     <div tw="flex justify-center">
-      <Img fluid={data.transparentLogoImg.childImageSharp.fluid} tw="w-20" />
+      {/* <Img fluid={data.transparentLogoImg.childImageSharp.fluid} tw="w-20" /> */}
     </div>
   );
 };

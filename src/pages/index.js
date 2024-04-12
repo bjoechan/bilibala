@@ -69,7 +69,7 @@ const IndexPage = ({ location }) => {
   ];
 
   const heroOptions = {
-    title: `<span tw="text-green">Billy Chan</span>`,
+    title: `Billy Chan`,
     description: "Web Developer, Radio Host, Board Game Enthusiast",
     bgImage: data.heroSunRise.childImageSharp.fluid.src,
   };

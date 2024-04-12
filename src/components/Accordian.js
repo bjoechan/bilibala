@@ -49,7 +49,7 @@ export const Accordian = ({ accordianObj }) => {
             <div tw="p-4 flex w-full flex-col-reverse md:(flex-row)">
               <div tw="w-full text-lg md:(text-xl)">{item.description}</div>
               <div tw="w-full pb-4 md:(w-96 pl-6)">
-                <Img fluid={item.image} tw="w-full" />
+                {/* <Img fluid={item.image} tw="w-full" /> */}
               </div>
             </div>
           </div>

@@ -1,13 +1,12 @@
-// import * as React from "react";
+import * as React from "react";
 import tw from "twin.macro";
-import styled from "styled-components";
 
-export const Container = styled.div(({ tw: additionalTw }) => [
-  tw`w-full px-4 py-6 lg:(w-lg m-auto)`,
-  additionalTw,
-]);
+export const Container = ({ children, additionalTw }) => (
+  <div css={[tw`w-full px-4 py-6 lg:(w-lg m-auto)`, additionalTw]}>
+    {children}
+  </div>
+);
 
-export const FullContainer = styled.div(({ tw: additionalTw }) => [
-  tw`w-full`,
-  additionalTw,
-]);
+export const FullContainer = ({ children, additionalTw }) => (
+  <div css={[tw`w-full`, additionalTw]}>{children}</div>
+);
