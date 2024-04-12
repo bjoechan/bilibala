@@ -2,26 +2,30 @@ import * as React from "react";
 import tw from "twin.macro";
 import { Layout } from "../components/Layout";
 
-import { graphql, useStaticQuery } from "gatsby";
-import Img from "gatsby-image";
+import { graphql } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Container } from "../components/Container";
 
 import { P, H2 } from "../components/Typography";
 
 const Box = tw.div`p-3 border-2 border-dotted border-green text-center mr-2 mb-2 last:(mr-0) hover:(bg-amber-200)`;
 
-const AboutMePage = ({ location }) => {
-  const data = useStaticQuery(graphql`
-    query letsQuery {
-      file(relativePath: { eq: "billy-coffee.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1200) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
+export const pageQuery = graphql`
+  query {
+    file(relativePath: { eq: "billy-coffee.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1024
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+        )
       }
     }
-  `);
+  }
+`;
+
+const AboutMePage = ({ location, data }) => {
+  const image = getImage(data.file.childImageSharp);
 
   const myFavorite = [
     "GATSBY",
@@ -40,11 +44,13 @@ const AboutMePage = ({ location }) => {
   ];
   return (
     <Layout location={location}>
-      <Img
-        tw="object-cover object-right h-[32rem] lg:(object-cover h-[46rem] shadow-2xl)"
-        fluid={data.file.childImageSharp.fluid}
-        alt="Billy Drinking Coffee"
+      <GatsbyImage
+        image={image}
+        alt="Billy and Coffee"
+        tw="w-full h-96 md:h-[46rem]"
+        objectPosition="100% 50%"
       />
+
       <Container>
         <div tw="flex flex-col-reverse md:(flex-row)">
           <div tw="w-full md:w-3/4 pr-6">
@@ -99,4 +105,5 @@ const AboutMePage = ({ location }) => {
     </Layout>
   );
 };
+
 export default AboutMePage;

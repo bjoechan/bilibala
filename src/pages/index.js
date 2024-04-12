@@ -3,51 +3,60 @@ import "twin.macro";
 import { CallToAction } from "../components/CallToAction";
 import { Container, FullContainer } from "../components/Container";
 import { Layout } from "../components/Layout";
-import { useStaticQuery, graphql } from "gatsby";
+import { graphql } from "gatsby";
+import { getImage } from "gatsby-plugin-image";
 import { Hero } from "../components/Hero";
 import { H1, H2, P } from "../components/Typography";
 
-const IndexPage = ({ location }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      boardgame: file(relativePath: { eq: "boardgame.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 400) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      music: file(relativePath: { eq: "music.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      travel: file(relativePath: { eq: "travel.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      heroSunRise: file(relativePath: { eq: "hero/hero-sunrise.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1200) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
+export const pageQuery = graphql`
+  query {
+    heroSunRise: file(relativePath: { eq: "hero/hero-sunrise.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1024
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+        )
       }
     }
-  `);
+    boardgame: file(relativePath: { eq: "boardgame.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 400
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+        )
+      }
+    }
+    music: file(relativePath: { eq: "music.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 400
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+        )
+      }
+    }
+    travel: file(relativePath: { eq: "travel.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 400
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+        )
+      }
+    }
+  }
+`;
 
+const IndexPage = ({ location, data }) => {
   const callToActionOptions = [
     {
       title: "Board Games",
       description:
         "like Settlers of Catan, invite players to think outside the box, strategize, and build bonds through shared challenges.",
       buttonText: "Let's play",
-      imageSrc: data.boardgame.childImageSharp.fluid,
+      imageSrc: getImage(data.boardgame.childImageSharp),
       link: "/boardgames",
     },
     {
@@ -55,7 +64,7 @@ const IndexPage = ({ location }) => {
       description:
         "like a multifaceted elixir, weaves threads of calmness, invigoration, and creative sparks.",
       buttonText: "Let's feel",
-      imageSrc: data.music.childImageSharp.fluid,
+      imageSrc: getImage(data.music.childImageSharp),
       link: "/music",
     },
     {
@@ -63,7 +72,7 @@ const IndexPage = ({ location }) => {
       description:
         "like an open book, invites you to explore distant lands, immerse yourself in diverse cultures, and learn the universal language of respect.",
       buttonText: "Let's Go",
-      imageSrc: data.travel.childImageSharp.fluid,
+      imageSrc: getImage(data.travel.childImageSharp),
       link: "/travel",
     },
   ];
@@ -71,7 +80,7 @@ const IndexPage = ({ location }) => {
   const heroOptions = {
     title: `Billy Chan`,
     description: "Web Developer, Radio Host, Board Game Enthusiast",
-    bgImage: data.heroSunRise.childImageSharp.fluid.src,
+    bgImage: getImage(data.heroSunRise.childImageSharp),
   };
 
   return (

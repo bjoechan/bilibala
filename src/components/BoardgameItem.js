@@ -1,6 +1,6 @@
 import * as React from "react";
 import tw from "twin.macro";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import VideoContext from "../context/VideoContext";
 import { Container } from "./Container";
 import PlayIcon from "../images/assets/play-icon.inline.svg";
@@ -22,9 +22,9 @@ const BoardgameItem = ({ packages }) => {
         css={[imagePosition === "right" && tw`md:(flex-row-reverse)`]}
       >
         <div tw="w-full md:(w-2/5)">
-          {images.map((image, index) => ({
-            /* <Img key={index} fluid={image} tw="w-full" /> */
-          }))}
+          {images.map((image, index) => (
+            <GatsbyImage image={image} alt="" key={index} />
+          ))}
         </div>
         <div tw="w-full pt-8 md:(w-3/5 p-8)">
           <H2>{title}</H2>

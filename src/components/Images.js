@@ -1,33 +1,32 @@
 import * as React from "react";
-import { useStaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
+import { graphql, useStaticQuery } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import "twin.macro";
 
 export const LogoImg = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      logoImg: file(relativePath: { eq: "BC-logo.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 100) {
-            ...GatsbyImageSharpFluid
+  const data = useStaticQuery(
+    graphql`
+      query {
+        transparentLogoImg: file(
+          relativePath: { eq: "BC-logo-transparent.png" }
+        ) {
+          childImageSharp {
+            gatsbyImageData(
+              width: 512
+              placeholder: BLURRED
+              formats: [AUTO, JPG, AVIF]
+            )
           }
         }
       }
-      transparentLogoImg: file(
-        relativePath: { eq: "BC-logo-transparent.png" }
-      ) {
-        childImageSharp {
-          fluid(maxWidth: 100) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `);
+    `
+  );
+
+  const image = getImage(data.transparentLogoImg.childImageSharp);
 
   return (
     <div tw="flex justify-center">
-      {/* <Img fluid={data.transparentLogoImg.childImageSharp.fluid} tw="w-20" /> */}
+      <GatsbyImage image={image} alt="LOGO" tw="w-20" />
     </div>
   );
 };

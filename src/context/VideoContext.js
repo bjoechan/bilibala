@@ -25,11 +25,11 @@ const VideoProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    // if (state.playNow) {
-    //   document.body.style.overflow = "hidden";
-    // } else {
-    //   document.body.style.overflow = "unset";
-    // }
+    if (state.playNow) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
   }, [state.playNow]);
   return (
     <VideoContext.Provider

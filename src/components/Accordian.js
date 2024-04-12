@@ -2,12 +2,12 @@ import * as React from "react";
 import { useState } from "react";
 import tw from "twin.macro";
 
+import { GatsbyImage } from "gatsby-plugin-image";
+
 import { H2, H3 } from "./Typography";
 
 import DownIcon from "../images/assets/down-icon.inline.svg";
 import UpIcon from "../images/assets/up-icon.inline.svg";
-
-import Img from "gatsby-image";
 
 export const Accordian = ({ accordianObj }) => {
   const id = accordianObj.id;
@@ -49,7 +49,7 @@ export const Accordian = ({ accordianObj }) => {
             <div tw="p-4 flex w-full flex-col-reverse md:(flex-row)">
               <div tw="w-full text-lg md:(text-xl)">{item.description}</div>
               <div tw="w-full pb-4 md:(w-96 pl-6)">
-                {/* <Img fluid={item.image} tw="w-full" /> */}
+                <GatsbyImage image={item.image} alt={item.cTitle} />
               </div>
             </div>
           </div>
