@@ -10,7 +10,7 @@ import { H1, H2, P } from "../components/Typography";
 
 export const pageQuery = graphql`
   query {
-    heroSunRise: file(relativePath: { eq: "hero/hero-sunrise.png" }) {
+    heroSunRise: file(relativePath: { eq: "hero/hero-sunrise.webp" }) {
       childImageSharp {
         gatsbyImageData(
           width: 1024
@@ -19,7 +19,7 @@ export const pageQuery = graphql`
         )
       }
     }
-    boardgame: file(relativePath: { eq: "boardgame.png" }) {
+    boardgame: file(relativePath: { eq: "boardgame.webp" }) {
       childImageSharp {
         gatsbyImageData(
           width: 400
@@ -28,7 +28,7 @@ export const pageQuery = graphql`
         )
       }
     }
-    music: file(relativePath: { eq: "music.png" }) {
+    music: file(relativePath: { eq: "music.webp" }) {
       childImageSharp {
         gatsbyImageData(
           width: 400
@@ -37,7 +37,7 @@ export const pageQuery = graphql`
         )
       }
     }
-    travel: file(relativePath: { eq: "travel.png" }) {
+    travel: file(relativePath: { eq: "travel.webp" }) {
       childImageSharp {
         gatsbyImageData(
           width: 400

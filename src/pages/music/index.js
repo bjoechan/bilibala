@@ -9,7 +9,7 @@ import { getImage } from "gatsby-plugin-image";
 
 export const pageQuery = graphql`
   query {
-    heroMusic: file(relativePath: { eq: "hero/hero-music.png" }) {
+    heroMusic: file(relativePath: { eq: "hero/hero-music.webp" }) {
       childImageSharp {
         gatsbyImageData(
           width: 1024

@@ -12,7 +12,7 @@ const Box = tw.div`p-3 border-2 border-dotted border-green text-center mr-2 mb-2
 
 export const pageQuery = graphql`
   query {
-    file(relativePath: { eq: "billy-coffee.jpg" }) {
+    file(relativePath: { eq: "billy-coffee.webp" }) {
       childImageSharp {
         gatsbyImageData(
           width: 1024

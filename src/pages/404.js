@@ -11,7 +11,7 @@ import { P, H1 } from "../components/Typography";
 
 export const pageQuery = graphql`
   query {
-    image404: file(relativePath: { eq: "404.png" }) {
+    image404: file(relativePath: { eq: "404.webp" }) {
       childImageSharp {
         gatsbyImageData(
           width: 1024

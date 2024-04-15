@@ -28,7 +28,7 @@ const BoardgameItem = ({ packages }) => {
               alt=""
               key={index}
               loading="eager"
-              tw="w-screen"
+              tw="w-full"
             />
           ))}
         </div>

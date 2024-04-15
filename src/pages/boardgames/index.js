@@ -10,7 +10,7 @@ import BoardgameItem from "../../components/BoardgameItem";
 
 export const pageQuery = graphql`
   query {
-    heroBoardgame: file(relativePath: { eq: "hero/hero-boardgame.jpg" }) {
+    heroBoardgame: file(relativePath: { eq: "hero/hero-boardgame.webp" }) {
       childImageSharp {
         gatsbyImageData(
           width: 1024

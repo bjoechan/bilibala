@@ -10,7 +10,7 @@ import { getImage } from "gatsby-plugin-image";
 
 export const pageQuery = graphql`
   query {
-    heroImage: file(relativePath: { eq: "bridge.jpg" }) {
+    heroImage: file(relativePath: { eq: "bridge.webp" }) {
       childImageSharp {
         gatsbyImageData(
           width: 1024

@@ -13,7 +13,7 @@ import { Accordian } from "../../components/Accordian";
 
 export const pageQuery = graphql`
   query {
-    heroTravel: file(relativePath: { eq: "hero/hero-travel.png" }) {
+    heroTravel: file(relativePath: { eq: "hero/hero-travel.webp" }) {
       childImageSharp {
         gatsbyImageData(
           width: 1024
@@ -22,7 +22,7 @@ export const pageQuery = graphql`
         )
       }
     }
-    amsterdam: file(relativePath: { eq: "travel/amsterdam.jpg" }) {
+    amsterdam: file(relativePath: { eq: "travel/amsterdam.webp" }) {
       childImageSharp {
         gatsbyImageData(
           width: 1512
@@ -31,7 +31,7 @@ export const pageQuery = graphql`
         )
       }
     }
-    banff: file(relativePath: { eq: "travel/banff.jpg" }) {
+    banff: file(relativePath: { eq: "travel/banff.webp" }) {
       childImageSharp {
         gatsbyImageData(
           width: 1512
@@ -40,7 +40,7 @@ export const pageQuery = graphql`
         )
       }
     }
-    kyoto: file(relativePath: { eq: "travel/kyoto.jpg" }) {
+    kyoto: file(relativePath: { eq: "travel/kyoto.webp" }) {
       childImageSharp {
         gatsbyImageData(
           width: 1512
@@ -49,7 +49,7 @@ export const pageQuery = graphql`
         )
       }
     }
-    lisbon: file(relativePath: { eq: "travel/lisbon.jpg" }) {
+    lisbon: file(relativePath: { eq: "travel/lisbon.webp" }) {
       childImageSharp {
         gatsbyImageData(
           width: 1512
@@ -58,7 +58,7 @@ export const pageQuery = graphql`
         )
       }
     }
-    newyork: file(relativePath: { eq: "travel/newyork.jpg" }) {
+    newyork: file(relativePath: { eq: "travel/newyork.webp" }) {
       childImageSharp {
         gatsbyImageData(
           width: 1512
@@ -67,7 +67,7 @@ export const pageQuery = graphql`
         )
       }
     }
-    valletta: file(relativePath: { eq: "travel/valletta.jpg" }) {
+    valletta: file(relativePath: { eq: "travel/valletta.webp" }) {
       childImageSharp {
         gatsbyImageData(
           width: 1512
