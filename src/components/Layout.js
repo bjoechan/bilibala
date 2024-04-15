@@ -22,18 +22,21 @@ export const Layout = ({ children, location }) => {
   };
 
   return (
-    <div>
+    <>
       <Seo
         title="Billy Chan | Web Developer, Radio Host, Board Game Enthusiast"
         description="Welcome to our website! We offer a wide range of web development services, including process automation, AI solutions, and more. Explore our site to learn more about our services and expertise."
         keywords="Web Developer, Radio Host, Board Game Enthusiast"
         location={location}
       />
-      <MenuBar isMenuOpen={isMenuOpen} openMobileMenu={openMobileMenu} />
-      <div css={tw`bg-white pt-28 md:(pt-40) lg:(pt-28)`}>
-        <div tw="bg-white">{children}</div>
+
+      <div>
+        <MenuBar isMenuOpen={isMenuOpen} openMobileMenu={openMobileMenu} />
+        <div css={tw`bg-white pt-28 md:(pt-40) lg:(pt-28)`}>
+          <div tw="bg-white">{children}</div>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </>
   );
 };

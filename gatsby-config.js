@@ -3,14 +3,15 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `bilibala`,
-    siteUrl: `https://www.bilibala.ca`,
+    title: `Billy Chan`,
+    siteUrl: `https://www.billychan.ca`,
   },
   plugins: [
     "gatsby-plugin-emotion",
     "gatsby-plugin-postcss",
     `gatsby-plugin-sharp`,
     `gatsby-plugin-image`,
+    `gatsby-plugin-recaptcha`,
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-google-fonts`,
@@ -64,7 +65,6 @@ module.exports = {
         enableWebVitalsTracking: true,
       },
     },
-
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

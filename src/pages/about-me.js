@@ -6,7 +6,7 @@ import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Container } from "../components/Container";
 
-import { P, H2 } from "../components/Typography";
+import { P, H1Green, H2, Space } from "../components/Typography";
 
 const Box = tw.div`p-3 border-2 border-dotted border-green text-center mr-2 mb-2 last:(mr-0) hover:(bg-amber-200)`;
 
@@ -40,6 +40,7 @@ const AboutMePage = ({ location, data }) => {
     "REACT",
     "SASS",
     "TAILWIND",
+    "TYPESCRIPT",
     "VUE",
   ];
   return (
@@ -90,6 +91,12 @@ const AboutMePage = ({ location, data }) => {
               explore this website – it's my own little corner of the digital
               world, where I share my passions and, hopefully, spark some
               curiosity of your own.
+            </P>
+
+            <Space />
+            <H1Green>MY ONGOING PROJECTS:</H1Green>
+            <P>
+              <i>...Coming soon</i>
             </P>
           </div>
           <div tw="w-full md:w-1/4">

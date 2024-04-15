@@ -10,13 +10,13 @@ const SEO = ({ title, description, keywords, location, image }) => {
   const imageSrc = location.origin + (image || billyCoffee);
 
   return (
-    <Helmet>
+    <Helmet defer={false}>
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={extraKeywords} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={billyCoffee} />
+      <meta property="og:image" content={imageSrc} />
       <meta property="og:url" content={location.href} />
       <meta property="og:type" content="website" />
       <meta name="twitter:card" content="summary_large_image" />

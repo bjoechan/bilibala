@@ -6,7 +6,7 @@ import { Layout } from "../components/Layout";
 import { graphql } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
 import { Hero } from "../components/Hero";
-import { H1, H2, P } from "../components/Typography";
+import { H1, H2, P, ALink } from "../components/Typography";
 
 export const pageQuery = graphql`
   query {
@@ -55,7 +55,7 @@ const IndexPage = ({ location, data }) => {
       title: "Board Games",
       description:
         "like Settlers of Catan, invite players to think outside the box, strategize, and build bonds through shared challenges.",
-      buttonText: "Let's play",
+
       imageSrc: getImage(data.boardgame.childImageSharp),
       link: "/boardgames",
     },
@@ -63,7 +63,7 @@ const IndexPage = ({ location, data }) => {
       title: "Music",
       description:
         "like a multifaceted elixir, weaves threads of calmness, invigoration, and creative sparks.",
-      buttonText: "Let's feel",
+
       imageSrc: getImage(data.music.childImageSharp),
       link: "/music",
     },
@@ -71,7 +71,7 @@ const IndexPage = ({ location, data }) => {
       title: "Travel",
       description:
         "like an open book, invites you to explore distant lands, immerse yourself in diverse cultures, and learn the universal language of respect.",
-      buttonText: "Let's Go",
+
       imageSrc: getImage(data.travel.childImageSharp),
       link: "/travel",
     },
@@ -79,7 +79,7 @@ const IndexPage = ({ location, data }) => {
 
   const heroOptions = {
     title: `Billy Chan`,
-    description: "Web Developer, Radio Host, Board Game Enthusiast",
+    description: "Web Developer, Traveller, Board Game Enthusiast & Radio Host",
     bgImage: getImage(data.heroSunRise.childImageSharp),
   };
 
@@ -107,9 +107,17 @@ const IndexPage = ({ location, data }) => {
           </P>
 
           <P>
-            And yes, I’m not just a code whisperer—I’m also a radio host. Tune
-            in to my show where I discuss tech trends, share development tips,
-            and occasionally slip in a board game recommendation.
+            And yes, I’m not just a code whisperer—I’m also a radio host. I am
+            currently a guest host in a radio show called{" "}
+            <ALink
+              href="https://slmedia.org/podcast/slhour"
+              target="_blank"
+              rel="noreferrer"
+            >
+              "SLHour" on Salt + Light Media
+            </ALink>
+            . The segment is called "Church for Dummies" where we try to explain
+            the basics of the faith in a fun and engaging way.
           </P>
 
           <H2>Let’s Connect!</H2>
