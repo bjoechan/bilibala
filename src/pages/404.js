@@ -4,26 +4,30 @@ import { Link } from "gatsby";
 
 import { Layout } from "../components/Layout";
 import { Hero } from "../components/Hero";
-import { useStaticQuery, graphql } from "gatsby";
+import { graphql } from "gatsby";
+import { getImage } from "gatsby-plugin-image";
 import { Container } from "../components/Container";
 import { P, H1 } from "../components/Typography";
 
-const NotFoundPage = ({ location }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      image404: file(relativePath: { eq: "404.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1200) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
+export const pageQuery = graphql`
+  query {
+    image404: file(relativePath: { eq: "404.webp" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1024
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+        )
       }
     }
-  `);
+  }
+`;
 
+const NotFoundPage = ({ location, data }) => {
   const heroOptions = {
-    slogan: "404 Page not found",
-    bgImage: data.image404.childImageSharp.fluid.src,
+    title: "404 Page not found",
+    description: "We couldn't find the page you are looking for...",
+    bgImage: getImage(data.image404.childImageSharp),
   };
 
   return (

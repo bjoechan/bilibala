@@ -1,54 +1,64 @@
 import * as React from "react";
 import "twin.macro";
 import { Layout } from "../../components/Layout";
-import { Container } from "../../components/Container";
 import { P } from "../../components/Typography";
-import { useStaticQuery, graphql } from "gatsby";
+import { graphql } from "gatsby";
+import { getImage } from "gatsby-plugin-image";
 import { Hero } from "../../components/Hero";
 
 import BoardgameItem from "../../components/BoardgameItem";
 
-const BoardGamesPage = ({ location }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      heroBoardgame: file(relativePath: { eq: "hero/hero-boardgame.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 2400) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-      bgMagicMaze1: file(relativePath: { eq: "boardgames/magicmaze-1.webp" }) {
-        childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      bgMagicMaze2: file(relativePath: { eq: "boardgames/magicmaze-2.webp" }) {
-        childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      bgClank1: file(relativePath: { eq: "boardgames/clank1.webp" }) {
-        childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      bgClank2: file(relativePath: { eq: "boardgames/clank2.webp" }) {
-        childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid
-          }
-        }
+export const pageQuery = graphql`
+  query {
+    heroBoardgame: file(relativePath: { eq: "hero/hero-boardgame.webp" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1024
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+        )
       }
     }
-  `);
+    bgMagicMaze1: file(relativePath: { eq: "boardgames/magicmaze-1.webp" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 800
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+        )
+      }
+    }
+    bgMagicMaze2: file(relativePath: { eq: "boardgames/magicmaze-2.webp" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 800
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+        )
+      }
+    }
+    bgClank1: file(relativePath: { eq: "boardgames/clank1.webp" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 800
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+        )
+      }
+    }
+    bgClank2: file(relativePath: { eq: "boardgames/clank2.webp" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 800
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+        )
+      }
+    }
+  }
+`;
 
+const BoardGamesPage = ({ location, data }) => {
   const boardGamesData = [
     {
       title: "Magic Maze",
@@ -77,8 +87,8 @@ const BoardGamesPage = ({ location }) => {
         </>
       ),
       images: [
-        data.bgMagicMaze1.childImageSharp.fluid,
-        data.bgMagicMaze2.childImageSharp.fluid,
+        getImage(data.bgMagicMaze1.childImageSharp),
+        getImage(data.bgMagicMaze2.childImageSharp),
       ],
       videoId: "N7tRhIJCzoQ",
       imagePosition: "right",
@@ -133,17 +143,17 @@ const BoardGamesPage = ({ location }) => {
         </>
       ),
       images: [
-        data.bgClank1.childImageSharp.fluid,
-        data.bgClank2.childImageSharp.fluid,
+        getImage(data.bgClank1.childImageSharp),
+        getImage(data.bgClank2.childImageSharp),
       ],
       videoId: "EZQyr5JkbBY",
     },
   ];
 
   const heroOptions = {
-    title: `<span>Boardgames</span>`,
+    title: `Boardgames`,
     description: "Here is a list of board games that I enjoy playing.",
-    bgImage: data.heroBoardgame.childImageSharp.fluid.src,
+    bgImage: getImage(data.heroBoardgame.childImageSharp),
   };
 
   return (
@@ -153,7 +163,6 @@ const BoardGamesPage = ({ location }) => {
       {boardGamesData.map((packages, index) => (
         <BoardgameItem key={index} packages={packages} />
       ))}
-      <Container tw="h-24"></Container>
     </Layout>
   );
 };

@@ -1,29 +1,32 @@
 import * as React from "react";
 import "twin.macro";
 import { Hero } from "../../components/Hero";
-import { useStaticQuery, graphql } from "gatsby";
+import { graphql } from "gatsby";
 import { Layout } from "../../components/Layout";
 import { Container } from "../../components/Container";
 import { H1, P, Author } from "../../components/Typography";
+import { getImage } from "gatsby-plugin-image";
 
-const MusicPage = ({ location }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      heroMusic: file(relativePath: { eq: "hero/hero-music.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 2400) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
+export const pageQuery = graphql`
+  query {
+    heroMusic: file(relativePath: { eq: "hero/hero-music.webp" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1024
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+        )
       }
     }
-  `);
+  }
+`;
 
+const MusicPage = ({ location, data }) => {
   const heroOptions = {
-    title: `<span>MUSIC</span>`,
+    title: `MUSIC`,
     description:
       "Music is the universal language of mankind. - Henry Wadsworth Longfellow",
-    bgImage: data.heroMusic.childImageSharp.fluid.src,
+    bgImage: getImage(data.heroMusic.childImageSharp),
   };
 
   return (

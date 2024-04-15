@@ -5,26 +5,29 @@ import { Form } from "../components/Form";
 import { Hero } from "../components/Hero";
 import { H1Green } from "../components/Typography";
 
-import { useStaticQuery, graphql } from "gatsby";
+import { graphql } from "gatsby";
+import { getImage } from "gatsby-plugin-image";
 
-const ContactPage = ({ location }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      heroImage: file(relativePath: { eq: "bridge.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1200) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
+export const pageQuery = graphql`
+  query {
+    heroImage: file(relativePath: { eq: "bridge.webp" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1024
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+        )
       }
     }
-  `);
+  }
+`;
 
+const ContactPage = ({ location, data }) => {
   const heroOptions = {
-    title: "Connect Me</span>",
+    title: "Connect Me",
     description:
-      "“We are all connected; to each other, biologically. To the Earth, chemically. To the rest of the universe, atomically.” – Neil deGrasse Tyson",
-    bgImage: data.heroImage.childImageSharp.fluid.src,
+      "We are all connected; to each other, biologically. To the Earth, chemically. To the rest of the universe, atomically.” – Neil deGrasse Tyson",
+    bgImage: getImage(data.heroImage.childImageSharp),
   };
 
   return (

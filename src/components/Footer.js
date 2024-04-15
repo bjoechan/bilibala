@@ -23,9 +23,7 @@ export const Footer = () => (
           <TwitterIcon alt="Twitter" tw="fill-white w-8 h-8 mx-2" />
         </a>
       </div>
-      <p tw="text-center mt-4">
-        © {new Date().getFullYear()} Billy Chan. All rights reserved.
-      </p>
+      <p tw="text-center mt-4">© 2024 Billy Chan. All rights reserved.</p>
     </div>
   </div>
 );

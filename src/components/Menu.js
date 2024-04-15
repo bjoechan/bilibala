@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 import tw, { styled } from "twin.macro";
 import { Link } from "gatsby";
 import MenuIcon from "../images/assets/mobile-menu-icon.inline.svg";
@@ -42,7 +43,7 @@ const menuItems = [
 ];
 
 export const Menu = ({ isMenuOpen, openMobileMenu }) => {
-  const [showSubBlock, setShowSubBlock] = React.useState(false);
+  const [showSubBlock, setShowSubBlock] = useState(false);
 
   return (
     <>
@@ -76,7 +77,7 @@ export const Menu = ({ isMenuOpen, openMobileMenu }) => {
           </div>
         )}
         {menuItems.map((item, index) => (
-          <div tw="relative">
+          <div tw="relative" key={index}>
             <MenuLink
               role="button" // Add a role attribute
               tabIndex="0" // Make the div focusable

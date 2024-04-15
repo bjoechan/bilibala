@@ -1,62 +1,29 @@
 import * as React from "react";
 import "twin.macro";
-import { FullContainer } from "./Container";
-import { useStaticQuery, graphql } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 export const Hero = ({ options = {} }) => {
-  let { title = "", description = "", slogan = "", bgImage } = options;
+  let { title, description, bgImage } = options;
 
-  const data = useStaticQuery(graphql`
-    query {
-      heroSunRise: file(relativePath: { eq: "hero/hero-sunrise.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1200) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-    }
-  `);
-
-  const backgroundImage = bgImage || data.heroSunRise.childImageSharp.fluid.src;
-
-  if (title !== "" && slogan !== "") {
-    slogan = "";
-  }
+  const backgroundImage = bgImage || "";
 
   return (
-    <FullContainer>
-      <div
-        tw="h-96 bg-cover bg-right"
-        style={{
-          backgroundImage: `url(${backgroundImage})`,
-        }}
-      >
-        <div tw="relative h-96 w-full text-white bg-black bg-opacity-20">
-          {title && description && (
-            <div tw="flex flex-col justify-center w-4/5 h-full pl-8 md:(animate-slideIn transition-all ease-in) lg:(pl-0 w-lg m-auto)">
-              <div tw="text-4xl text-left mb-4 md:(text-6xl) font-bold">
-                <span dangerouslySetInnerHTML={{ __html: title }} />
-              </div>
-              <div tw="text-xl md:(text-2xl)">
-                <span dangerouslySetInnerHTML={{ __html: description }} />
-              </div>
-            </div>
-          )}
-          {title && !description && (
-            <div tw="flex justify-center items-center w-4/5 h-full md:(animate-slideIn transition-all ease-in)">
-              <div tw="text-4xl text-center md:(text-6xl) lg:(text-8xl) font-bold">
-                <span dangerouslySetInnerHTML={{ __html: title }} />
-              </div>
-            </div>
-          )}
-          {slogan && (
-            <div tw="relative w-4/5 top-2/3 pl-[5%] text-xl md:(text-2xl) lg:(pl-0 w-lg m-auto text-4xl) italic font-bold animate-slideIn transition-all ease-in">
-              <span dangerouslySetInnerHTML={{ __html: slogan }} />
-            </div>
-          )}
+    <div tw="h-96 relative z-0">
+      <GatsbyImage
+        image={backgroundImage}
+        alt={title}
+        tw="w-screen h-96"
+        objectPosition="100% 50%"
+        objectFit="cover"
+        loading="eager"
+      />
+
+      <div tw="absolute top-0 left-0 bg-black bg-opacity-20 z-10 h-96 w-full flex items-center">
+        <div tw="w-lg mx-auto text-white p-10 md:(p-2 animate-slideIn)">
+          <div tw="text-4xl font-bold  md:text-6xl">{title}</div>
+          <div tw="text-xl w-4/5 md:(text-2xl)">{description}</div>
         </div>
       </div>
-    </FullContainer>
+    </div>
   );
 };
