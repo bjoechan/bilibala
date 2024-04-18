@@ -81,10 +81,10 @@ export const Form = () => {
     if (isNameValid && isEmailValid && isSubjectValid && isMessageValid) {
       emailjs
         .sendForm(
-          "service_56df9md",
-          "template_g53ef55",
+          "XXXXXXXXXXXXXX",
+          "XXXXXXXXXXXXXX",
           form.current,
-          "z4PRVPfdYMMBAf2lh"
+          "XXXXXXXXXXXXXX"
         )
         .then(
           (result) => {
