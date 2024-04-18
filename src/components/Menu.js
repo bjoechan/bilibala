@@ -113,7 +113,7 @@ export const Menu = ({ isMenuOpen, openMobileMenu }) => {
                 {item.subItems.map((subItem, subIndex) => (
                   <Link
                     to={subItem.path}
-                    key={subIndex}
+                    key={index + subIndex}
                     tw="text-white text-lg block md:(text-gray-600 hover:underline)"
                     css={[isMenuOpen ? tw`block` : tw`hidden md:block`]}
                   >
