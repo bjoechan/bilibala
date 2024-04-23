@@ -19,6 +19,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ["Barlow", "sans-serif"],
+        serif: ["Lora", "serif"],
       },
       animation: {
         slideIn: "slideIn 0.5s forwards",

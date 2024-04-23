@@ -1,5 +1,5 @@
 import * as React from "react";
-import "twin.macro";
+import tw from "twin.macro";
 import { CallToAction } from "../components/CallToAction";
 import { Container, FullContainer } from "../components/Container";
 import { Layout } from "../components/Layout";
@@ -136,11 +136,15 @@ const IndexPage = ({ location, data }) => {
           </div>
         </Container>
 
-        <FullContainer tw="bg-green">
+        <FullContainer atw={[tw`bg-green mt-12 py-10`]}>
           <Container tw="flex justify-center items-center py-20">
             <div tw="text-white text-center">
-              “The only way to do great work is to love what you do.” <br />–
-              Steve Jobs
+              <div tw="font-serif italic text-xl md:text-2xl">
+                “The only way to do great work is to love what you do.”
+              </div>
+              <div tw="font-sans pt-3 font-bold text-base md:text-xl">
+                Steve Jobs
+              </div>
             </div>
           </Container>
         </FullContainer>

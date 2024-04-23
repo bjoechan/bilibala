@@ -16,7 +16,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`Barlow\:200,200i,400,400i,700,700i`],
+        fonts: [
+          `Barlow\:200,200i,400,400i,700,700i`,
+          `Lora\:400,400i,700,700i`,
+        ],
         display: "swap",
       },
     },
