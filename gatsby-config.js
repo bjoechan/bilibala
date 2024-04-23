@@ -65,18 +65,6 @@ module.exports = {
         enableWebVitalsTracking: true,
       },
     },
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `BILIBALA`,
-        short_name: `BILIBALA`,
-        start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#663399`,
-        display: `standalone`,
-        icon: `src/images/BC-logo.png`, // This path is relative to the root of the site.
-      },
-    },
   ],
   flags: {
     DEV_SSR: true,

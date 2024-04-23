@@ -17,6 +17,18 @@ export const Layout = ({ children, location }) => {
     }
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setMenuOpen(false);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const openMobileMenu = () => {
     setMenuOpen(!isMenuOpen);
   };

@@ -79,21 +79,14 @@ export const Form = () => {
 
     // If there are no validation errors, then submit the form
     if (isNameValid && isEmailValid && isSubjectValid && isMessageValid) {
-      emailjs
-        .sendForm(
-          "XXXXXXXXXXXXXX",
-          "XXXXXXXXXXXXXX",
-          form.current,
-          "XXXXXXXXXXXXXX"
-        )
-        .then(
-          (result) => {
-            setIsSent(true);
-          },
-          (error) => {
-            setIsSent(false);
-          }
-        );
+      emailjs.sendForm("XXX", "XXX", form.current, "XXX").then(
+        (result) => {
+          setIsSent(true);
+        },
+        (error) => {
+          setIsSent(false);
+        }
+      );
     } else {
       alert("Form not submitted!");
       setIsSent(false);
