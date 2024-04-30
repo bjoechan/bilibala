@@ -1,5 +1,6 @@
 import * as React from "react";
 import tw from "twin.macro";
+import { useEffect } from "react";
 import { CallToAction } from "../components/CallToAction";
 import { Container, FullContainer } from "../components/Container";
 import { Layout } from "../components/Layout";
@@ -7,6 +8,9 @@ import { graphql } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
 import { Hero } from "../components/Hero";
 import { H1, H2, P, ALink } from "../components/Typography";
+
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export const pageQuery = graphql`
   query {
@@ -83,6 +87,20 @@ const IndexPage = ({ location, data }) => {
     bgImage: getImage(data.heroSunRise.childImageSharp),
   };
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.to(".quote", {
+        scrollTrigger: {
+          trigger: ".quote",
+          toggleActions: "restart none none none",
+        },
+        opacity: 1,
+        duration: 1,
+      });
+    }
+  }, []);
+
   return (
     <>
       <Layout location={location}>
@@ -136,9 +154,12 @@ const IndexPage = ({ location, data }) => {
           </div>
         </Container>
 
-        <FullContainer atw={[tw`bg-green mt-12 py-10`]}>
+        <FullContainer atw={[tw`bg-green mt-12 py-10 relative`]}>
           <Container tw="flex justify-center items-center py-20">
-            <div tw="text-white text-center">
+            <div
+              className="quote"
+              tw="text-white text-center relative opacity-0"
+            >
               <div tw="font-serif italic text-xl md:text-2xl">
                 “The only way to do great work is to love what you do.”
               </div>
